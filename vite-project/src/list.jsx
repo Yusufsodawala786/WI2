@@ -10,7 +10,6 @@ const List = () => {
             .then(res => {
                 console.log('Data fetched:', res.data);
                 setList(res.data);
-                console.log("list after fetching data", list)
             })
             .catch(error => {
                 console.error("Error fetching data:", error);
@@ -18,13 +17,24 @@ const List = () => {
             });
     }, []);
 
+    useEffect(() => {
+        console.log("list after fetching data", list);
+    }, [list]);
+
     return (
         <div>
-            <h1>List</h1>
             {error && <p>{error}</p>}
             <ul>
                 {list.map((item) => (
-                    <li key={item.id}>{item.name}</li>
+                    <li key={item.id} className='flex flex-row justify-start items-center border-b-2 mr-10 '>
+                        <div className='flex flex-row w-20 h-20 p-3'>
+                            <img src={item.image_url} alt="" />
+                        </div>
+                        <div className='flex flex-col'>
+                            <h1>{item.item}</h1>
+                            <h5 className='text-xs'>{item.price}</h5>
+                        </div>
+                    </li>
                 ))}
             </ul>
         </div>

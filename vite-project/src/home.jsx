@@ -5,13 +5,13 @@ import List from './list'
 const home = () => {
   return (
     <div className='flex flex-col h-screen'>
-        <div className='h-1/6 bg-blue-100 flex flex-col'>
+        <div className='h-1/6 bg-blue-100 flex flex-col sticky top-0'>
             <div className='flex justify-between p-8'>
                 <span className='font-bold'>Explore </span>
                 <span className='text-green-600 font-semibold'>Filter </span>
             </div>
             <div className='w-screen'>
-            <div className='w-80  h-auto flex justify-center items-center'>
+            <div className='w-100 h-auto flex justify-center items-center'>
                 <Input type='text' placeholder='Search'/>
             </div>
             </div>
@@ -27,10 +27,7 @@ const home = () => {
                     </div>
                 </li>
             </ul> */}
-            <List />
-        </div>
-        <div >
-
+            <List/>
         </div>
     </div>
   )
